@@ -21,23 +21,25 @@ h2{
     height: 80vh;
     min-height:600px;
     margin: 10vh auto;
-    background-color: rgb(232, 255, 127,0.25);
+    background-color: rgb(232, 255, 127,0.40);
     display: flex;
-    justify-content: center;        /*horizontal-align */
     align-items: center;
-    padding: 50px 20px;          /*vertical-align */
+    padding: 50px 50px;
+    justify-content: left;
+
 }
 .choice-container:hover{
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgb(163, 17, 230);
     transform: translateY(-0.1rem);
     transition: 150ms;
-
 }
 .choice-container{
+    margin-top: 12px;
     display: flex;
     margin-bottom: 0.2rem;
     width:100%;
+    max-width: 50vw;
     font-size: 1.4rem;
     border: 0.2rem solid blueviolet;
     background-color: white;
@@ -48,8 +50,18 @@ h2{
     background-color: rgb(0, 217, 255);
     color: rgb(153, 16, 16);
 }
+.choice-prefix:hover{
+    background:linear-gradient(to right, rgb(245, 60, 4) ,rgb(255, 153, 0));
+}
 
 .choice-text{
     padding:1.5rem;
-    width=100%;
+    width:100%;  
+}
+.choice-text:hover{
+    background:linear-gradient(to right, rgb(173, 245, 4) ,yellow);
+    transition-duration: 200ms;
+}
+#question{
+    max-width: 100%;
 }
