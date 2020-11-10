@@ -1,0 +1,22 @@
+body{
+   background-image: url(../images/pexels-pixabay-326311.jpg) ; 
+   background-size: contain;
+   font-family: 'Special Elite', cursive;
+   background-attachment: fixed;
+}
+.navbar-brand{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #411f1f;
+}
+.nav-link{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #411f1f;
+}
+.download-button{
+  margin: 8rem 50%;
+  height: 5rem;
+  font-weight: bolder;
+  font-size: 3rem;
+}
