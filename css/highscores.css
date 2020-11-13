@@ -1,0 +1,88 @@
+body{
+    background-image: url(../images/pexels-pixabay-326311.jpg) ; 
+    background-size: contain;
+    font-family: 'Special Elite', cursive;
+    background-attachment: fixed;
+ }
+*{
+    box-sizing: border-box;
+    margin:0px;
+    padding: 0px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 300px;
+    border-radius: 25px;
+    background:linear-gradient(to right, rgb(245, 60, 4) ,rgb(255, 153, 0));
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.btn{
+    height: 50px;
+    width: 200px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 40px;
+    text-decoration: none;
+    background-color: aquamarine;
+    border: solid rgb(0, 162, 255);
+    margin-top: 10px;
+}
+
+#end{
+    width:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.container{
+    width: 80vw;
+    height: 90vh;
+    min-height:600px;
+    margin: 10vh auto;
+    background-color: rgb(232, 255, 127,0.40);
+    display: flex;
+    align-items: center;
+    padding: 50px 50px;
+    justify-content: center;
+
+}
+#highScoresList{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background:linear-gradient(to right, rgb(209, 245, 4) ,rgb(0, 255, 213));
+    list-style: none;
+
+}
+#highScoresList li{
+    padding: 4px 15px;
+}
+
+#highScoresList li:nth-child(even){
+    background:linear-gradient(to right,rgb(0, 195, 255),rgb(245, 120, 4) );
+    width:100%;
+}
+/* #highScoresList li::before {
+    content: '*';
+    color: red;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  } */
+.high-score{
+    font-size: 2.8rem;
+}
+
+.high-score:hover{
+
+}
