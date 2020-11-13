@@ -16,16 +16,21 @@ h2{
     font-size: 2.5rem;
     margin-bottom: 3rem;
 }
+
+#gamer{
+    display: inline;
+
+}
 .container{
-    max-width: 80vw;
-    height: 80vh;
+    width: 80vw;
+    height: 90vh;
     min-height:600px;
     margin: 10vh auto;
     background-color: rgb(232, 255, 127,0.40);
     display: flex;
     align-items: center;
     padding: 50px 50px;
-    justify-content: left;
+    justify-content: center;
 
 }
 .choice-container:hover{
@@ -38,8 +43,7 @@ h2{
     margin-top: 12px;
     display: flex;
     margin-bottom: 0.2rem;
-    width:100%;
-    max-width: 50vw;
+    width:60%;
     font-size: 1.4rem;
     border: 0.2rem solid blueviolet;
     background-color: white;
@@ -58,10 +62,32 @@ h2{
     padding:1.5rem;
     width:100%;  
 }
-.choice-text:hover{
+/* .choice-text:hover{
     background:linear-gradient(to right, rgb(173, 245, 4) ,yellow);
     transition-duration: 200ms;
-}
+} */
 #question{
     max-width: 100%;
+}
+
+.correct{
+    background:linear-gradient(to right, rgb(173, 245, 4) ,yellow);
+}
+
+.incorrect{
+    background:linear-gradient(to right, rgb(247, 4, 4) ,rgb(255, 94, 0));
+}
+
+#hud{
+    width:72vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hud-prefix{
+    text-align: center;
+    font-size: 2rem;
+}
+.hud-main-text{
+    text-align: center;
 }

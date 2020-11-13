@@ -1,7 +1,7 @@
-console.log("Hello World");
 const quest=document.getElementById("question");
 const choices=Array.from(document.getElementsByClassName("choice-text"));
-console.log(choices);
+const questionCounterText=document.getElementById("questionCounter");
+const scoreText=document.getElementById("score");
 
 let currentQuestion={};
 let acceptingAnswers = false;
@@ -11,15 +11,15 @@ let avaliableQuestions=[];
 
 let questions =[
     {
-        question: "This is question no 1... do you know ??",
+        question: "This is question no 1... do you know ?? (2)",
         choice1 : "this is choice1",
         choice2 : "this is choice2",
         choice3 : "this is choice3",
         choice4 : "this is choice4",
-        answer: 2
+        answer: 2    
     },
     {
-        question: "This is question no twoo---... do you know ??",
+        question: "This is question no twoo---... do you know ??  (3)",
         choice1 : "this is choice1 option",
         choice2 : "this is choice2 option",
         choice3 : "this is choice3 option",
@@ -27,7 +27,7 @@ let questions =[
         answer: 3
     },    
     {
-        question: "This is question no threee... do you know ??",
+        question: "This is question no threee... do you know ??(1)",
         choice1 : "this is choice1",
         choice2 : "this is choice2",
         choice3 : "this is choice3",
@@ -35,7 +35,7 @@ let questions =[
         answer: 1
     },
     {
-        question: "This is question no 4... do you know  the answer??",
+        question: "This is question no 4... do you know  the answer??(4)",
         choice1 : "this is choice1",
         choice2 : "this is choice2",
         choice3 : "this is choice3",
@@ -45,8 +45,8 @@ let questions =[
 ]
 
 //constants
-const Correct_Marks = 10;
-const Total_Questions = 3; //or use questions.length;
+const Marks_per_Correct = 10;
+const Total_Questions = 4; //or use questions.length;
 
 startGame = () =>{
     questionCounter=0;
@@ -58,17 +58,24 @@ startGame = () =>{
 
 getNewQuestion = () =>{
     if(avaliableQuestions.length ==0 || questionCounter >= Total_Questions){
+        localStorage.setItem('mostRecentScore',score);
         console.log("Game Over");
-        return window.location.assign("");
+        return window.location.assign("../pages/end.html");
     }
+
     questionCounter++;
+    questionCounterText.innerText = questionCounter + '/' + Total_Questions;
+
     //Creating a random number
     const QuesIndex = Math.floor(Math.random() * avaliableQuestions.length);
     currentQuestion = avaliableQuestions[QuesIndex];
-    quest.innerText = currentQuestion.question;
 
+    //Inserting New question into yhe array
+    quest.innerText = currentQuestion.question;
+    
+    //Filling up options in the choices-container
     choices.forEach( choice => {
-        const number = choice.dataset["number"];
+        const number = choice.dataset['number'];
         choice.innerText = currentQuestion['choice'+number];
     });
 
@@ -83,9 +90,27 @@ choices.forEach( choice => {
         acceptingAnswers=true;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset["number"];
-        console.log(selectedAnswer);
-        getNewQuestion();
-    })
-})
 
+        var classToApply = 'incorrect';
+        if(selectedAnswer == currentQuestion.answer){
+            classToApply = 'correct';
+        }
+        if(classToApply ==='correct'){
+            incrementScore(Marks_per_Correct);
+        }
+        console.log(classToApply);
+
+        //Adding this variable 'classToApply' as class to the parent of selected choice for applying CSS.
+        selectedChoice.parentElement.classList.add(classToApply);
+        setTimeout(()=>{
+            selectedChoice.parentElement.classList.remove(classToApply);
+            getNewQuestion();
+        },300);
+    });
+});
+
+incrementScore = num =>{
+    score += num;
+    scoreText.innerText = score;
+}
 startGame();

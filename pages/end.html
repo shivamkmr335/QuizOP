@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result</title>
+    <link rel="stylesheet" href="../css/end.css">
+</head>
+<body>
+    <div class="container">
+        <div id="end">
+            <h1 id="finalScore">0</h1>
+            <form>
+                <input type="text" name="username" id="username" placeholder="username">
+                <button 
+                    type="submit"
+                    class="btn"
+                    id="saveScoreBtn"
+                    onclick="saveHighScore(event)"
+                    disabled 
+                >
+                    <b>SAVE</b>
+                </button>
+            </form>
+            <br>
+            <a href="../pages/game.html" class="btn"><b>Play Again</b></a>
+            <a href="../index.html" class="btn"><b>Go Home</b></a>
+        </div>    
+    </div>
+    <script src="../JS/end.js"></script>
+</body>
+</html>
