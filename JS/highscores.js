@@ -6,5 +6,5 @@ highScoresList.innerHTML= highScores
         return `<li class="high-score"> ${score.name}  ==>  ${score.score} Marks</li>`;
     })
     .join("");
-
+    
 console.log(highScoresList);
