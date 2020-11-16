@@ -1,0 +1,34 @@
+[
+    {
+        "question": "This is question no 1... do you know ?? (2)",
+        "choice1" : "this is choice1",
+        "choice2" : "this is choice2",
+        "choice3" : "this is choice3",
+        "choice4" : "this is choice4",
+        "answer" : 2    
+    },
+    {
+        "question": "This is question no twoo---... do you know ??  (3)",
+        "choice1" : "this is choice1 option",
+        "choice2" : "this is choice2 option",
+        "choice3" : "this is choice3 option",
+        "choice4" : "this is choice4 option",
+        "answer" :3
+    },    
+    {
+        "question": "This is question no threee... do you know ??(1)",
+        "choice1" : "this is choice1",
+        "choice2" : "this is choice2",
+        "choice3" : "this is choice3",
+        "choice4" : "this is choice4",
+        "answer": 1
+    },
+    {
+        "question" : "This is question no 4... do you know  the answer??(4)",
+        "choice1" : "this is choice1",
+        "choice2" : "this is choice2",
+        "choice3" : "this is choice3",
+        "choice4" : "this is choice4",
+        "answer" : 4
+    }
+]

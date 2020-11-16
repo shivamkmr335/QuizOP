@@ -9,40 +9,23 @@ let score=0;
 let questionCounter=0;
 let avaliableQuestions=[];
 
-let questions =[
-    {
-        question: "This is question no 1... do you know ?? (2)",
-        choice1 : "this is choice1",
-        choice2 : "this is choice2",
-        choice3 : "this is choice3",
-        choice4 : "this is choice4",
-        answer: 2    
-    },
-    {
-        question: "This is question no twoo---... do you know ??  (3)",
-        choice1 : "this is choice1 option",
-        choice2 : "this is choice2 option",
-        choice3 : "this is choice3 option",
-        choice4 : "this is choice4 option",
-        answer: 3
-    },    
-    {
-        question: "This is question no threee... do you know ??(1)",
-        choice1 : "this is choice1",
-        choice2 : "this is choice2",
-        choice3 : "this is choice3",
-        choice4 : "this is choice4",
-        answer: 1
-    },
-    {
-        question: "This is question no 4... do you know  the answer??(4)",
-        choice1 : "this is choice1",
-        choice2 : "this is choice2",
-        choice3 : "this is choice3",
-        choice4 : "this is choice4",
-        answer: 4
-    }
-]
+let questions =[];
+
+fetch("../JSON/api.php.json")
+    .then(res =>{
+        return res.json();
+    })
+    .then(loadedQuestions => {
+        console.log(loadedQuestions.results);
+        // loadedQuestions.results.map(loadedQuestion =>{
+        //     const formattedQuestion = {
+        //         question: loadedQuestion.questions
+        //     }
+        // })
+    })
+    .catch(err =>{
+        console.error(err);
+    }); 
 
 //constants
 const Marks_per_Correct = 10;
@@ -52,7 +35,6 @@ startGame = () =>{
     questionCounter=0;
     score=0;
     avaliableQuestions =[...questions];
-    console.log(avaliableQuestions);
     getNewQuestion();
 };
 
@@ -113,4 +95,3 @@ incrementScore = num =>{
     score += num;
     scoreText.innerText = score;
 }
-startGame();
