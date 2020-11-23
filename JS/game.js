@@ -11,25 +11,47 @@ let avaliableQuestions=[];
 
 let questions =[];
 
-fetch("../JSON/api.php.json")
+
+// fetch("https://opentdb.com/api.php?amount=20&category=18&difficulty=easy&type=multiple")  //20 easy cs questions
+// fetch("https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple")
+fetch("https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple")      //10 medium cs questions
     .then(res =>{
         return res.json();
     })
     .then(loadedQuestions => {
         console.log(loadedQuestions.results);
-        // loadedQuestions.results.map(loadedQuestion =>{
-        //     const formattedQuestion = {
-        //         question: loadedQuestion.questions
-        //     }
-        // })
+        questions = loadedQuestions.results.map(loadedQuestion =>{
+            const formattedQuestion = {
+                question: loadedQuestion.question
+            };
+
+            const answerChoices = [...loadedQuestion.incorrect_answers];
+            formattedQuestion.answer = Math.floor(Math.random()*3) + 1;
+            answerChoices.splice(
+                formattedQuestion.answer - 1,0,loadedQuestion.correct_answer
+            );
+ 
+            answerChoices.forEach((choice,index) => {
+                formattedQuestion["choice"+(index + 1)] = choice;
+            });
+
+            return formattedQuestion;
+
+        });
+        startGame();
     })
     .catch(err =>{
         console.error(err);
     }); 
 
+// fetch("../JSON/questions.json")
+//     .then(res=>{
+//         return res;
+//     });
+
 //constants
 const Marks_per_Correct = 10;
-const Total_Questions = 4; //or use questions.length;
+const Total_Questions = 10; //or use questions.length;
 
 startGame = () =>{
     questionCounter=0;
